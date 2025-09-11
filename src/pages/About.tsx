@@ -223,57 +223,53 @@ const About = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 space-y-4">
-            <Badge variant="outline" className="text-secondary border-secondary/20 bg-secondary/5">
-              Our Team
+            <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5">
+              Meet the Team
             </Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold">
-              Built by <span className="text-glow-secondary">Experienced</span> Professionals
+            <h2 className="text-4xl lg:text-5xl font-bold">
+              The Mastermind Behind <span className="text-glow-primary">PolyTICK_7</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Our team combines deep financial markets expertise with cutting-edge technology 
-              to deliver insights that matter.
+              Led by visionary Kirill, our team combines financial expertise with cutting-edge technology to democratize political trading intelligence.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <Card className="card-glow p-8 text-center hover-glow-primary">
-              <div className="space-y-4">
-                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-primary mx-auto">
-                  <Award className="h-8 w-8 text-primary-foreground" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold">Financial Expertise</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Former Wall Street analysts and traders who understand what data matters most.
+          {/* Kirill Profile */}
+          <div className="max-w-4xl mx-auto">
+            <Card className="card-glow p-8 lg:p-12">
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="order-2 lg:order-1 space-y-6">
+                  <div>
+                    <h3 className="text-3xl font-bold mb-2 text-glow-primary">Kirill</h3>
+                    <p className="text-xl text-secondary font-semibold">Founder & CEO</p>
+                  </div>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    The visionary mastermind behind PolyTICK_7, Kirill identified the gap in affordable, comprehensive political trading intelligence. With a background in financial markets and data analytics, he's pioneering the 7-layer analysis system that makes political trading insights accessible to everyone.
                   </p>
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="h-2 w-2 rounded-full bg-primary"></div>
+                      <span className="text-muted-foreground">15+ Years Financial Markets Experience</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="h-2 w-2 rounded-full bg-secondary"></div>
+                      <span className="text-muted-foreground">Expert in Political Data Analysis</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="h-2 w-2 rounded-full bg-primary"></div>
+                      <span className="text-muted-foreground">Technology Innovation Leader</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </Card>
-
-            <Card className="card-glow p-8 text-center hover-glow-primary">
-              <div className="space-y-4">
-                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-secondary mx-auto">
-                  <Zap className="h-8 w-8 text-secondary-foreground" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold">Tech Innovation</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Engineers from top tech companies building scalable, reliable data infrastructure.
-                  </p>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="card-glow p-8 text-center hover-glow-primary">
-              <div className="space-y-4">
-                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-primary mx-auto">
-                  <Users className="h-8 w-8 text-primary-foreground" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold">Community Focus</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Active traders and community members who understand real-world needs.
-                  </p>
+                <div className="order-1 lg:order-2">
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-primary opacity-20 blur-2xl"></div>
+                    <img 
+                      src="/lovable-uploads/25e11071-d6f5-44f2-ba28-fe2718037d8d.png" 
+                      alt="Kirill - Founder & CEO of PolyTICK_7" 
+                      className="relative rounded-2xl w-full max-w-md mx-auto shadow-elegant"
+                    />
+                  </div>
                 </div>
               </div>
             </Card>

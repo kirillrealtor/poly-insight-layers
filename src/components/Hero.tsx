@@ -109,7 +109,17 @@ const Hero = () => {
 
           {/* Visual Element */}
           <div className="relative animate-float">
-            <div className="card-glow p-8 rounded-2xl">
+            {/* Trading Charts Background */}
+            <div className="absolute inset-0 rounded-2xl overflow-hidden">
+              <img 
+                src="/lovable-uploads/0ac3bba9-dd28-432d-88f2-249b7ce1948a.png" 
+                alt="Financial Trading Charts" 
+                className="h-full w-full object-cover opacity-30"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-transparent" />
+            </div>
+            
+            <div className="relative card-glow p-8 rounded-2xl">
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <h3 className="text-xl font-bold">Live Trading Data</h3>

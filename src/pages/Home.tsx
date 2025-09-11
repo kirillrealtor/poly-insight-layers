@@ -37,8 +37,12 @@ const Home = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="card-glow p-8 hover-glow-primary group">
               <div className="space-y-6">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-primary group-hover:animate-glow">
-                  <BarChart3 className="h-7 w-7 text-primary-foreground" />
+                <div className="h-14 w-14 rounded-xl overflow-hidden bg-gradient-primary group-hover:animate-glow">
+                  <img 
+                    src="/lovable-uploads/06e50cc4-d546-4591-ab84-3c8b1f991915.png" 
+                    alt="Real-time Analytics" 
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">Real-time Data</h3>
@@ -51,8 +55,12 @@ const Home = () => {
 
             <Card className="card-glow p-8 hover-glow-primary group">
               <div className="space-y-6">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-secondary group-hover:animate-glow">
-                  <TrendingUp className="h-7 w-7 text-secondary-foreground" />
+                <div className="h-14 w-14 rounded-xl overflow-hidden bg-gradient-secondary group-hover:animate-glow">
+                  <img 
+                    src="/lovable-uploads/44a4255e-83e0-45dd-ae99-2ca3183a4bce.png" 
+                    alt="Pattern Analysis" 
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">Pattern Analysis</h3>
@@ -65,8 +73,12 @@ const Home = () => {
 
             <Card className="card-glow p-8 hover-glow-primary group">
               <div className="space-y-6">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-primary group-hover:animate-glow">
-                  <Users className="h-7 w-7 text-primary-foreground" />
+                <div className="h-14 w-14 rounded-xl overflow-hidden bg-gradient-primary group-hover:animate-glow">
+                  <img 
+                    src="/lovable-uploads/54a70550-1061-435b-aa4c-beea62769f0c.png" 
+                    alt="Complete Coverage Network" 
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">Complete Coverage</h3>
@@ -79,8 +91,12 @@ const Home = () => {
 
             <Card className="card-glow p-8 hover-glow-primary group">
               <div className="space-y-6">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-secondary group-hover:animate-glow">
-                  <Shield className="h-7 w-7 text-secondary-foreground" />
+                <div className="h-14 w-14 rounded-xl overflow-hidden bg-gradient-secondary group-hover:animate-glow">
+                  <img 
+                    src="/lovable-uploads/e385a2b2-e72f-4d62-8659-03df90a48f9d.png" 
+                    alt="Compliance Tracking" 
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">Compliance Tracking</h3>
@@ -93,8 +109,12 @@ const Home = () => {
 
             <Card className="card-glow p-8 hover-glow-primary group">
               <div className="space-y-6">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-primary group-hover:animate-glow">
-                  <Zap className="h-7 w-7 text-primary-foreground" />
+                <div className="h-14 w-14 rounded-xl overflow-hidden bg-gradient-primary group-hover:animate-glow">
+                  <img 
+                    src="/lovable-uploads/c30d3306-b933-4003-87b6-979186981624.png" 
+                    alt="Alert System" 
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">Alert System</h3>
@@ -107,8 +127,12 @@ const Home = () => {
 
             <Card className="card-glow p-8 hover-glow-primary group">
               <div className="space-y-6">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-secondary group-hover:animate-glow">
-                  <Star className="h-7 w-7 text-secondary-foreground" />
+                <div className="h-14 w-14 rounded-xl overflow-hidden bg-gradient-secondary group-hover:animate-glow">
+                  <img 
+                    src="/lovable-uploads/08df0559-b78a-45c3-a08e-473a74064850.png" 
+                    alt="Premium Insights" 
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">Premium Insights</h3>
