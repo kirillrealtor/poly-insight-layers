@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import About from './pages/About'
 import Pricing from './pages/Pricing'
@@ -12,7 +11,6 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-slate-900">
-        <Navbar />
         <main className="pt-16">
           <Routes>
             <Route path="/" element={<Home />} />
