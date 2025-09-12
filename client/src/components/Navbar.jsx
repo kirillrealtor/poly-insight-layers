@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, TrendingUp } from 'lucide-react';
 
-const Navbar = ({ activeSection, setActiveSection }) => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About Us' },
-    { id: 'pricing', label: 'Pricing' },
-    { id: 'contact', label: 'Contact' },
-    { id: 'dashboard', label: 'Dashboard' }
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'About Us' },
+    { path: '/pricing', label: 'Pricing' },
+    { path: '/contact', label: 'Contact' },
+    { path: '/dashboard', label: 'Dashboard' }
   ];
 
   return (
@@ -25,17 +27,17 @@ const Navbar = ({ activeSection, setActiveSection }) => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setActiveSection(item.id)}
+              <Link
+                key={item.path}
+                to={item.path}
                 className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                  activeSection === item.id
+                  location.pathname === item.path
                     ? 'text-blue-400 border-b-2 border-blue-400'
                     : 'text-gray-300 hover:text-white'
                 }`}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </div>
 
@@ -55,20 +57,20 @@ const Navbar = ({ activeSection, setActiveSection }) => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-slate-800 rounded-lg mt-2">
               {navItems.map((item) => (
-                <button
-                  key={item.id}
+                <Link
+                  key={item.path}
+                  to={item.path}
                   onClick={() => {
-                    setActiveSection(item.id);
                     setIsMenuOpen(false);
                   }}
                   className={`block w-full text-left px-3 py-2 text-base font-medium transition-colors duration-200 ${
-                    activeSection === item.id
+                    location.pathname === item.path
                       ? 'text-blue-400 bg-slate-700'
                       : 'text-gray-300 hover:text-white hover:bg-slate-700'
                   }`}
                 >
                   {item.label}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
