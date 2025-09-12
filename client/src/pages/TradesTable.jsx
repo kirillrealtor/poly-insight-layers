@@ -1,24 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import {
-  Box,
-  Typography,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  Chip,
-  CircularProgress,
-  Link,
-  TextField,
-  MenuItem,
-  Button,
-} from "@mui/material";
-import { CheckCircle, Cancel } from "@mui/icons-material";
+import { Search, Filter, ExternalLink, TrendingUp, TrendingDown } from 'lucide-react';
 
 // Committee → color map
 const committeeColors = {
@@ -60,6 +43,21 @@ export default function TradesTable() {
 
   if (tradesLoading || polLoading) return <CircularProgress />;
   if (tradesError || polError) return <Typography color="error">Error loading data.</Typography>;
+  if (tradesLoading || polLoading) {
+    return (
+      <div className="flex justify-center items-center py-20">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-400"></div>
+      </div>
+    );
+  }
+  
+  if (tradesError || polError) {
+    return (
+      <div className="text-center py-20">
+        <p className="text-red-400 text-lg">Error loading data. Please try again later.</p>
+      </div>
+    );
+  }
 
   // Quick lookup for politicians
   const politicianMap = {};
@@ -87,167 +85,165 @@ export default function TradesTable() {
   });
 
   return (
-    <Box sx={{ p: 4, fontFamily: "serif" }}>
-      {/* Heading */}
-      <Typography
-        variant="h3"
-        gutterBottom
-        sx={{ fontWeight: "bold", textAlign: "center", color: "#2c3e50" }}
-      >
-        Insider Trading of Politicians
-      </Typography>
-      <Typography
-        variant="subtitle1"
-        gutterBottom
-        sx={{
-          textAlign: "center",
-          mb: 3,
-          color: "gray",
-          fontStyle: "italic",
-          fontSize: "1.1rem",
-        }}
-      >
-        A detailed look into financial trades made by U.S. lawmakers, their parties,
-        and the committees they serve on.
-      </Typography>
-
+    <div className="p-6">
       {/* Filters */}
-      <Box sx={{ display: "flex", gap: 2, mb: 3, justifyContent: "center" }}>
-        <TextField
-          label="Search by name, ID, or committee"
-          variant="outlined"
-          size="small"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          sx={{ minWidth: 300 }}
-        />
-        <TextField
-          select
-          label="Filter by Committee"
-          variant="outlined"
-          size="small"
-          value={selectedCommittee}
-          onChange={(e) => setSelectedCommittee(e.target.value)}
-          sx={{ minWidth: 250 }}
-        >
-          <MenuItem value="">All Committees</MenuItem>
-          {Array.from(
-            new Set(
-              politicians.flatMap((p) => p.committees?.map((c) => c.name) || [])
-            )
-          ).map((cname) => (
-            <MenuItem key={cname} value={cname}>
-              {cname}
-            </MenuItem>
-          ))}
-        </TextField>
-      </Box>
+      <div className="flex flex-col md:flex-row gap-4 mb-6">
+        <div className="relative flex-1">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+          <input
+            type="text"
+            placeholder="Search by name, ID, or committee..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full pl-10 pr-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
+        
+        <div className="relative">
+          <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+          <select
+            value={selectedCommittee}
+            onChange={(e) => setSelectedCommittee(e.target.value)}
+            className="pl-10 pr-8 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none min-w-[250px]"
+          >
+            <option value="">All Committees</option>
+            {Array.from(
+              new Set(
+                politicians.flatMap((p) => p.committees?.map((c) => c.name) || [])
+              )
+            ).map((cname) => (
+              <option key={cname} value={cname}>
+                {cname}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
 
       {/* Table */}
-      <TableContainer component={Paper} sx={{ borderRadius: 4, boxShadow: 5 }}>
-        <Table>
-          <TableHead sx={{ backgroundColor: "#f4f6f8" }}>
-            <TableRow>
-              <TableCell><strong>#</strong></TableCell>
-              <TableCell><strong>Politician</strong></TableCell>
-              <TableCell><strong>Committees</strong></TableCell>
-              <TableCell><strong>Party</strong></TableCell>
-              <TableCell><strong>State</strong></TableCell>
-              <TableCell><strong>Company</strong></TableCell>
-              <TableCell><strong>Ticker</strong></TableCell>
-              <TableCell><strong>Type</strong></TableCell>
-              <TableCell><strong>Amount</strong></TableCell>
-              <TableCell><strong>Trade Date</strong></TableCell>
-              <TableCell><strong>Published</strong></TableCell>
-              <TableCell><strong>Document</strong></TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {filteredTrades.slice(0, visibleRows).map((trade, index) => {
-              const pol = politicianMap[trade.politician_id];
-              return (
-                <TableRow key={trade.id} hover>
-                  <TableCell>{index + 1}</TableCell>
-                  <TableCell>{pol ? pol.name : `Unknown (${trade.politician_id})`}</TableCell>
+      <div className="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead className="bg-slate-700">
+              <tr>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-300">#</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-300">Politician</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-300">Committees</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-300">Party</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-300">State</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-300">Company</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-300">Ticker</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-300">Type</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-300">Amount</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-300">Trade Date</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-300">Published</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-300">Document</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-700">
+              {filteredTrades.slice(0, visibleRows).map((trade, index) => {
+                const pol = politicianMap[trade.politician_id];
+                return (
+                  <tr key={trade.id} className="hover:bg-slate-700/50 transition-colors">
+                    <td className="px-4 py-3 text-sm text-gray-300">{index + 1}</td>
+                    <td className="px-4 py-3 text-sm font-medium text-white">
+                      {pol ? pol.name : `Unknown (${trade.politician_id})`}
+                    </td>
+                    
+                    {/* Committees */}
+                    <td className="px-4 py-3">
+                      {pol?.committees?.length > 0 ? (
+                        <div className="flex flex-wrap gap-1">
+                          {pol.committees.map((c) => (
+                            <span
+                              key={c.id}
+                              className="px-2 py-1 text-xs font-medium bg-blue-600/20 text-blue-400 rounded-full"
+                            >
+                              {c.name}
+                            </span>
+                          ))}
+                        </div>
+                      ) : (
+                        <span className="text-gray-400 text-sm">N/A</span>
+                      )}
+                    </td>
 
-                  {/* Committees */}
-                  <TableCell>
-                    {pol?.committees?.length > 0 ? (
-                      pol.committees.map((c) => (
-                        <Chip
-                          key={c.id}
-                          label={c.name}
-                          size="small"
-                          sx={{ m: 0.3, fontWeight: "bold" }}
-                          color={committeeColors[c.name] || "default"}
-                        />
-                      ))
-                    ) : (
-                      "N/A"
-                    )}
-                  </TableCell>
-
-                  <TableCell>{pol?.party || "N/A"}</TableCell>
-                  <TableCell>{pol?.state || "N/A"}</TableCell>
-                  <TableCell>{trade.issuer || "N/A"}</TableCell>
-                  <TableCell>{trade.ticker || "-"}</TableCell>
-                  <TableCell>
-                    <Chip
-                      label={trade.trade_type}
-                      color={trade.trade_type?.toLowerCase() === "buy" ? "success" : "error"}
-                      icon={
-                        trade.trade_type?.toLowerCase() === "buy" ? (
-                          <CheckCircle />
+                    <td className="px-4 py-3">
+                      <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+                        pol?.party === 'Republican' 
+                          ? 'bg-red-600/20 text-red-400' 
+                          : pol?.party === 'Democratic'
+                          ? 'bg-blue-600/20 text-blue-400'
+                          : 'bg-gray-600/20 text-gray-400'
+                      }`}>
+                        {pol?.party || "N/A"}
+                      </span>
+                    </td>
+                    
+                    <td className="px-4 py-3 text-sm text-gray-300">{pol?.state || "N/A"}</td>
+                    <td className="px-4 py-3 text-sm text-white font-medium">{trade.issuer || "N/A"}</td>
+                    <td className="px-4 py-3 text-sm text-blue-400 font-mono">{trade.ticker || "-"}</td>
+                    
+                    <td className="px-4 py-3">
+                      <div className={`flex items-center space-x-1 px-2 py-1 rounded-full text-xs font-medium ${
+                        trade.trade_type?.toLowerCase() === "buy" 
+                          ? 'bg-green-600/20 text-green-400' 
+                          : 'bg-red-600/20 text-red-400'
+                      }`}>
+                        {trade.trade_type?.toLowerCase() === "buy" ? (
+                          <TrendingUp className="h-3 w-3" />
                         ) : (
-                          <Cancel />
-                        )
-                      }
-                    />
-                  </TableCell>
-                  <TableCell>{trade.size || "Unknown"}</TableCell>
-                  <TableCell>
-                    {trade.trade_date
-                      ? new Date(trade.trade_date).toLocaleDateString()
-                      : "-"}
-                  </TableCell>
-                  <TableCell>
-                    {trade.published_date
-                      ? new Date(trade.published_date).toLocaleDateString()
-                      : "-"}
-                  </TableCell>
-                  <TableCell>
-                    {trade.filing_url ? (
-                      <Link href={trade.filing_url} target="_blank" rel="noopener">
-                        PDF
-                      </Link>
-                    ) : (
-                      "N/A"
-                    )}
-                  </TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
-      </TableContainer>
+                          <TrendingDown className="h-3 w-3" />
+                        )}
+                        <span>{trade.trade_type}</span>
+                      </div>
+                    </td>
+                    
+                    <td className="px-4 py-3 text-sm text-gray-300">{trade.size || "Unknown"}</td>
+                    <td className="px-4 py-3 text-sm text-gray-300">
+                      {trade.trade_date
+                        ? new Date(trade.trade_date).toLocaleDateString()
+                        : "-"}
+                    </td>
+                    <td className="px-4 py-3 text-sm text-gray-300">
+                      {trade.published_date
+                        ? new Date(trade.published_date).toLocaleDateString()
+                        : "-"}
+                    </td>
+                    <td className="px-4 py-3">
+                      {trade.filing_url ? (
+                        <a 
+                          href={trade.filing_url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="flex items-center space-x-1 text-blue-400 hover:text-blue-300 transition-colors"
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                          <span className="text-sm">PDF</span>
+                        </a>
+                      ) : (
+                        <span className="text-gray-400 text-sm">N/A</span>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+  );
+}
 
       {/* Show More */}
       {visibleRows < filteredTrades.length && (
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
-          <Button
-            variant="contained"
+        <div className="flex justify-center mt-6">
+          <button
             onClick={() => setVisibleRows((prev) => prev + 10)}
-            sx={{
-              borderRadius: "20px",
-              px: 4,
-              backgroundColor: "#2c3e50",
-              "&:hover": { backgroundColor: "#1a242f" },
-            }}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200"
           >
-            Show More
-          </Button>
-        </Box>
+            Show More ({filteredTrades.length - visibleRows} remaining)
+          </button>
+        </div>
       )}
-    </Box>
-  );
-}
+    </div>
