@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { ExternalLink, ArrowUpRight, ArrowDownRight } from "lucide-react";
 
 const LiveTradingData = () => {
   return (
@@ -24,39 +26,117 @@ const LiveTradingData = () => {
                   <Badge className="bg-success/20 text-success border-success/30">Live</Badge>
                 </div>
                 
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50 hover-glow-primary transition-all duration-300">
-                    <div>
-                      <div className="font-semibold">Nancy Pelosi</div>
-                      <div className="text-sm text-muted-foreground">NVDA Call Options</div>
-                    </div>
-                    <div className="text-right">
-                      <div className="font-semibold text-success">+$2.1M</div>
-                      <div className="text-xs text-muted-foreground">7 days ago</div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50 hover-glow-primary transition-all duration-300">
-                    <div>
-                      <div className="font-semibold">Dan Crenshaw</div>
-                      <div className="text-sm text-muted-foreground">XOM Holdings</div>
-                    </div>
-                    <div className="text-right">
-                      <div className="font-semibold text-success">+$890K</div>
-                      <div className="text-xs text-muted-foreground">3 days ago</div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50 hover-glow-primary transition-all duration-300">
-                    <div>
-                      <div className="font-semibold">Austin Scott</div>
-                      <div className="text-sm text-muted-foreground">TSLA Puts</div>
-                    </div>
-                    <div className="text-right">
-                      <div className="font-semibold text-warning">+$445K</div>
-                      <div className="text-xs text-muted-foreground">1 day ago</div>
-                    </div>
-                  </div>
+                <div className="overflow-x-auto">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="w-12">#</TableHead>
+                        <TableHead>Politician</TableHead>
+                        <TableHead>Committees</TableHead>
+                        <TableHead>Party</TableHead>
+                        <TableHead>State</TableHead>
+                        <TableHead>Company</TableHead>
+                        <TableHead>Ticker</TableHead>
+                        <TableHead>Type</TableHead>
+                        <TableHead>Amount</TableHead>
+                        <TableHead>Trade Date</TableHead>
+                        <TableHead>Published</TableHead>
+                        <TableHead>Document</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      <TableRow className="hover-glow-primary">
+                        <TableCell>1</TableCell>
+                        <TableCell className="font-semibold">Nancy Pelosi</TableCell>
+                        <TableCell>
+                          <div className="flex flex-wrap gap-1">
+                            <Badge variant="secondary" className="text-xs">Financial Services</Badge>
+                            <Badge variant="secondary" className="text-xs">Budget</Badge>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30">Democrat</Badge>
+                        </TableCell>
+                        <TableCell>CA</TableCell>
+                        <TableCell>NVIDIA Corp</TableCell>
+                        <TableCell className="font-mono">NVDA</TableCell>
+                        <TableCell>
+                          <Badge className="bg-success/20 text-success border-success/30">
+                            <ArrowUpRight className="h-3 w-3 mr-1" />
+                            Buy
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="font-semibold text-success">$2.1M</TableCell>
+                        <TableCell>2024-01-15</TableCell>
+                        <TableCell>2024-01-22</TableCell>
+                        <TableCell>
+                          <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+                            <ExternalLink className="h-4 w-4" />
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                      
+                      <TableRow className="hover-glow-primary">
+                        <TableCell>2</TableCell>
+                        <TableCell className="font-semibold">Dan Crenshaw</TableCell>
+                        <TableCell>
+                          <div className="flex flex-wrap gap-1">
+                            <Badge variant="secondary" className="text-xs">Energy</Badge>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <Badge className="bg-red-500/20 text-red-400 border-red-500/30">Republican</Badge>
+                        </TableCell>
+                        <TableCell>TX</TableCell>
+                        <TableCell>Exxon Mobil Corp</TableCell>
+                        <TableCell className="font-mono">XOM</TableCell>
+                        <TableCell>
+                          <Badge className="bg-success/20 text-success border-success/30">
+                            <ArrowUpRight className="h-3 w-3 mr-1" />
+                            Buy
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="font-semibold text-success">$890K</TableCell>
+                        <TableCell>2024-01-18</TableCell>
+                        <TableCell>2024-01-20</TableCell>
+                        <TableCell>
+                          <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+                            <ExternalLink className="h-4 w-4" />
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                      
+                      <TableRow className="hover-glow-primary">
+                        <TableCell>3</TableCell>
+                        <TableCell className="font-semibold">Austin Scott</TableCell>
+                        <TableCell>
+                          <div className="flex flex-wrap gap-1">
+                            <Badge variant="secondary" className="text-xs">Armed Services</Badge>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <Badge className="bg-red-500/20 text-red-400 border-red-500/30">Republican</Badge>
+                        </TableCell>
+                        <TableCell>GA</TableCell>
+                        <TableCell>Tesla Inc</TableCell>
+                        <TableCell className="font-mono">TSLA</TableCell>
+                        <TableCell>
+                          <Badge className="bg-destructive/20 text-destructive border-destructive/30">
+                            <ArrowDownRight className="h-3 w-3 mr-1" />
+                            Sell
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="font-semibold text-warning">$445K</TableCell>
+                        <TableCell>2024-01-20</TableCell>
+                        <TableCell>2024-01-21</TableCell>
+                        <TableCell>
+                          <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+                            <ExternalLink className="h-4 w-4" />
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
                 </div>
 
                 <Button className="w-full bg-gradient-secondary hover-glow-secondary">

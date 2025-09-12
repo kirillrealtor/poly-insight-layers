@@ -1,5 +1,7 @@
 import Hero from "@/components/Hero";
 import LiveTradingData from "@/components/LiveTradingData";
+import TrustedBy from "@/components/TrustedBy";
+import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -39,7 +41,7 @@ const Home = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="card-glow p-8 hover-glow-primary group">
               <div className="space-y-6">
-                <div className="h-14 w-14 rounded-xl overflow-hidden bg-gradient-primary group-hover:animate-glow">
+                <div className="h-32 w-full rounded-xl overflow-hidden bg-gradient-primary group-hover:animate-glow">
                   <img 
                     src="/lovable-uploads/06e50cc4-d546-4591-ab84-3c8b1f991915.png" 
                     alt="Real-time Analytics" 
@@ -57,7 +59,7 @@ const Home = () => {
 
             <Card className="card-glow p-8 hover-glow-primary group">
               <div className="space-y-6">
-                <div className="h-14 w-14 rounded-xl overflow-hidden bg-gradient-secondary group-hover:animate-glow">
+                <div className="h-32 w-full rounded-xl overflow-hidden bg-gradient-secondary group-hover:animate-glow">
                   <img 
                     src="/lovable-uploads/44a4255e-83e0-45dd-ae99-2ca3183a4bce.png" 
                     alt="Pattern Analysis" 
@@ -75,7 +77,7 @@ const Home = () => {
 
             <Card className="card-glow p-8 hover-glow-primary group">
               <div className="space-y-6">
-                <div className="h-14 w-14 rounded-xl overflow-hidden bg-gradient-primary group-hover:animate-glow">
+                <div className="h-32 w-full rounded-xl overflow-hidden bg-gradient-primary group-hover:animate-glow">
                   <img 
                     src="/lovable-uploads/54a70550-1061-435b-aa4c-beea62769f0c.png" 
                     alt="Complete Coverage Network" 
@@ -93,7 +95,7 @@ const Home = () => {
 
             <Card className="card-glow p-8 hover-glow-primary group">
               <div className="space-y-6">
-                <div className="h-14 w-14 rounded-xl overflow-hidden bg-gradient-secondary group-hover:animate-glow">
+                <div className="h-32 w-full rounded-xl overflow-hidden bg-gradient-secondary group-hover:animate-glow">
                   <img 
                     src="/lovable-uploads/e385a2b2-e72f-4d62-8659-03df90a48f9d.png" 
                     alt="Compliance Tracking" 
@@ -111,7 +113,7 @@ const Home = () => {
 
             <Card className="card-glow p-8 hover-glow-primary group">
               <div className="space-y-6">
-                <div className="h-14 w-14 rounded-xl overflow-hidden bg-gradient-primary group-hover:animate-glow">
+                <div className="h-32 w-full rounded-xl overflow-hidden bg-gradient-primary group-hover:animate-glow">
                   <img 
                     src="/lovable-uploads/c30d3306-b933-4003-87b6-979186981624.png" 
                     alt="Alert System" 
@@ -129,7 +131,7 @@ const Home = () => {
 
             <Card className="card-glow p-8 hover-glow-primary group">
               <div className="space-y-6">
-                <div className="h-14 w-14 rounded-xl overflow-hidden bg-gradient-secondary group-hover:animate-glow">
+                <div className="h-32 w-full rounded-xl overflow-hidden bg-gradient-secondary group-hover:animate-glow">
                   <img 
                     src="/lovable-uploads/08df0559-b78a-45c3-a08e-473a74064850.png" 
                     alt="Premium Insights" 
@@ -257,6 +259,8 @@ const Home = () => {
         </div>
       </section>
 
+      <TrustedBy />
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-dark">
         <div className="container mx-auto px-4 text-center">
@@ -279,6 +283,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };
