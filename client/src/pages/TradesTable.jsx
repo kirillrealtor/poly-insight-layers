@@ -232,8 +232,6 @@ export default function TradesTable() {
           </table>
         </div>
       </div>
-  );
-}
 
       {/* Show More */}
       {visibleRows < filteredTrades.length && (
@@ -247,3 +245,5 @@ export default function TradesTable() {
         </div>
       )}
     </div>
+  );
+}
