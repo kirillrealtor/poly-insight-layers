@@ -6,12 +6,17 @@ import heroImage from "@/assets/hero-image.jpg";
 const Hero = () => {
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-dark pt-16">
-      {/* Background Image with Overlay */}
+      {/* Background Images with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
           src={heroImage} 
           alt="Political Trading Analytics Dashboard" 
-          className="h-full w-full object-cover opacity-20"
+          className="h-full w-full object-cover opacity-15"
+        />
+        <img 
+          src="/lovable-uploads/907e3534-237b-48af-a043-747c8ed327e1.png" 
+          alt="Trading Charts and Candlesticks" 
+          className="absolute inset-0 h-full w-full object-cover opacity-25 mix-blend-screen"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/70 to-transparent" />
       </div>
@@ -20,8 +25,8 @@ const Hero = () => {
       <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-primary/10 blur-3xl animate-glow" />
       <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-secondary/10 blur-3xl animate-glow" style={{ animationDelay: '1s' }} />
 
-      <div className="relative z-10 container mx-auto px-4 py-20">
-        <div className="max-w-6xl mx-auto text-center min-h-[80vh] flex flex-col justify-center">
+      <div className="relative z-10 container mx-auto px-4 py-32">
+        <div className="max-w-6xl mx-auto text-center min-h-[90vh] flex flex-col justify-center">
           {/* Content */}
           <div className="space-y-8 animate-fade-in">
             {/* Badge */}
@@ -108,73 +113,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      {/* Live Trading Data Section */}
-      <section className="py-16 bg-background/50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="relative animate-float">
-              {/* Trading Charts Background */}
-              <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                <img 
-                  src="/lovable-uploads/0ac3bba9-dd28-432d-88f2-249b7ce1948a.png" 
-                  alt="Financial Trading Charts" 
-                  className="h-full w-full object-cover opacity-30"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-transparent" />
-              </div>
-              
-              <div className="relative card-glow p-8 rounded-2xl">
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-xl font-bold">Live Trading Data</h3>
-                    <Badge className="bg-success/20 text-success">Live</Badge>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50">
-                      <div>
-                        <div className="font-semibold">Nancy Pelosi</div>
-                        <div className="text-sm text-muted-foreground">NVDA Call Options</div>
-                      </div>
-                      <div className="text-right">
-                        <div className="font-semibold text-success">+$2.1M</div>
-                        <div className="text-xs text-muted-foreground">7 days ago</div>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50">
-                      <div>
-                        <div className="font-semibold">Dan Crenshaw</div>
-                        <div className="text-sm text-muted-foreground">XOM Holdings</div>
-                      </div>
-                      <div className="text-right">
-                        <div className="font-semibold text-success">+$890K</div>
-                        <div className="text-xs text-muted-foreground">3 days ago</div>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50">
-                      <div>
-                        <div className="font-semibold">Austin Scott</div>
-                        <div className="text-sm text-muted-foreground">TSLA Puts</div>
-                      </div>
-                      <div className="text-right">
-                        <div className="font-semibold text-warning">+$445K</div>
-                        <div className="text-xs text-muted-foreground">1 day ago</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <Button className="w-full bg-gradient-secondary hover-glow-secondary">
-                    View All Trades
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </section>
   );
 };

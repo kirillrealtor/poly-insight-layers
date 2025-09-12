@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import LiveTradingData from "@/components/LiveTradingData";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -17,6 +18,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       <Hero />
+      <LiveTradingData />
 
       {/* Features Section */}
       <section className="py-20 bg-gradient-dark">
