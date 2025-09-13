@@ -12,7 +12,7 @@ import './App.css'
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-slate-900">
+      <div className="min-h-screen bg-black">
         <Navbar />
         <main>
           <Routes>

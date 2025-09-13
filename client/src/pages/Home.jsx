@@ -67,24 +67,24 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-900">
+    <div className="min-h-screen bg-black">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/src/assets/image.png')`,
+            backgroundImage: `url('/client/src/assets/image.png')`,
           }}
         >
-          <div className="absolute inset-0 bg-slate-900/85"></div>
+          <div className="absolute inset-0 bg-black/85"></div>
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-16">
           <div className="max-w-5xl mx-auto">
             {/* Main Headline */}
-            <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
+            <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight mt-8">
               <span className="text-blue-400">Poly</span>TICK<span className="text-blue-400">7</span>
             </h1>
             
@@ -100,19 +100,19 @@ const Home = () => {
 
             {/* Key Benefits */}
             <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
-              <div className="bg-slate-800/60 backdrop-blur-sm p-6 rounded-xl border border-slate-700">
+              <div className="bg-black/60 backdrop-blur-sm p-6 rounded-xl border border-slate-700">
                 <TrendingUp className="h-10 w-10 text-green-400 mx-auto mb-3" />
                 <h3 className="text-lg font-semibold text-white mb-2">Maximize Returns</h3>
                 <p className="text-gray-400 text-sm">Follow congressional trades that historically outperform the market</p>
               </div>
               
-              <div className="bg-slate-800/60 backdrop-blur-sm p-6 rounded-xl border border-slate-700">
+              <div className="bg-black/60 backdrop-blur-sm p-6 rounded-xl border border-slate-700">
                 <Shield className="h-10 w-10 text-blue-400 mx-auto mb-3" />
                 <h3 className="text-lg font-semibold text-white mb-2">Transparent Data</h3>
                 <p className="text-gray-400 text-sm">Real-time access to all congressional trading activity</p>
               </div>
               
-              <div className="bg-slate-800/60 backdrop-blur-sm p-6 rounded-xl border border-slate-700">
+              <div className="bg-black/60 backdrop-blur-sm p-6 rounded-xl border border-slate-700">
                 <DollarSign className="h-10 w-10 text-yellow-400 mx-auto mb-3" />
                 <h3 className="text-lg font-semibold text-white mb-2">Affordable Access</h3>
                 <p className="text-gray-400 text-sm">60% cheaper than competitors like Unusual Whales</p>
@@ -158,7 +158,7 @@ const Home = () => {
       </section>
 
       {/* Live Data Section */}
-      <section className="py-20 bg-slate-800">
+      <section className="py-20 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center space-x-2 mb-4">
@@ -177,7 +177,7 @@ const Home = () => {
             {liveDataStats.map((stat, index) => {
               const IconComponent = stat.icon;
               return (
-                <div key={index} className="bg-slate-900 rounded-2xl p-8 border border-slate-700 hover:border-blue-500/50 transition-all duration-300 group">
+                <div key={index} className="bg-black rounded-2xl p-8 border border-slate-700 hover:border-blue-500/50 transition-all duration-300 group">
                   <div className="flex items-center justify-between mb-6">
                     <IconComponent className={`h-10 w-10 ${stat.color} group-hover:scale-110 transition-transform duration-300`} />
                     <span className="text-green-400 text-sm font-medium bg-green-400/20 px-3 py-1 rounded-full">
@@ -201,7 +201,7 @@ const Home = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-slate-900">
+      <section className="py-20 bg-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -214,10 +214,10 @@ const Home = () => {
 
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden transition-all duration-300 hover:border-blue-500/50">
+              <div key={index} className="bg-slate-900 rounded-xl border border-slate-700 overflow-hidden transition-all duration-300 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10">
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-slate-700/50 transition-colors duration-200"
+                  className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-slate-800/50 transition-all duration-200"
                 >
                   <h3 className="text-lg font-semibold text-white pr-4">{faq.question}</h3>
                   <div className="flex-shrink-0">
@@ -233,6 +233,7 @@ const Home = () => {
                   openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 } overflow-hidden`}>
                   <div className="px-8 pb-6">
+                    <div className="h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent mb-4"></div>
                     <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
                   </div>
                 </div>
@@ -243,7 +244,7 @@ const Home = () => {
       </section>
 
       {/* Pricing Preview Section */}
-      <section className="py-20 bg-slate-800">
+      <section className="py-20 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -264,7 +265,7 @@ const Home = () => {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {/* Single Politician */}
-            <div className="bg-slate-900 rounded-2xl p-8 border border-slate-700 hover:border-blue-500/50 transition-all duration-300">
+            <div className="bg-black rounded-2xl p-8 border border-slate-700 hover:border-blue-500/50 transition-all duration-300">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-white mb-2">Single Politician</h3>
                 <div className="flex items-baseline justify-center mb-4">
@@ -279,7 +280,7 @@ const Home = () => {
             </div>
 
             {/* Single Party - Popular */}
-            <div className="bg-slate-900 rounded-2xl p-8 border-2 border-blue-500 relative scale-105 shadow-2xl">
+            <div className="bg-black rounded-2xl p-8 border-2 border-blue-500 relative scale-105 shadow-2xl">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <div className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center space-x-1">
                   <Star className="h-4 w-4" />
@@ -300,7 +301,7 @@ const Home = () => {
             </div>
 
             {/* Both Parties */}
-            <div className="bg-slate-900 rounded-2xl p-8 border border-slate-700 hover:border-blue-500/50 transition-all duration-300">
+            <div className="bg-black rounded-2xl p-8 border border-slate-700 hover:border-blue-500/50 transition-all duration-300">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-white mb-2">Both Parties</h3>
                 <div className="flex items-baseline justify-center mb-4">
