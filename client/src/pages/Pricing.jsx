@@ -5,15 +5,17 @@ const Pricing = () => {
   const plans = [
     {
       name: "Single Politician",
-      price: "$3.99",
-      period: "/month",
+      price: "$6.99",
+      period: "/year",
+      originalPrice: "$19.99/year afterwards",
       description: "Track one specific politician's trades",
       features: [
         "Real-time trade alerts",
         "Historical data access",
         "Committee information",
         "Basic analytics",
-        "Mobile app access"
+        "Mobile app access",
+        "7-day free trial"
       ],
       popular: false,
       color: "border-slate-700"
@@ -22,6 +24,7 @@ const Pricing = () => {
       name: "Single Party",
       price: "$19.99",
       period: "/month",
+      originalPrice: null,
       description: "Track all politicians from one party",
       features: [
         "All single politician features",
@@ -29,7 +32,8 @@ const Pricing = () => {
         "Comparative analysis",
         "Advanced filtering",
         "Export capabilities",
-        "Priority support"
+        "Priority support",
+        "7-day free trial"
       ],
       popular: true,
       color: "border-blue-500"
@@ -38,6 +42,7 @@ const Pricing = () => {
       name: "Both Parties",
       price: "$29.99",
       period: "/month",
+      originalPrice: null,
       description: "Complete access to all political trades",
       features: [
         "All previous features",
@@ -46,7 +51,8 @@ const Pricing = () => {
         "Advanced visualizations",
         "API access",
         "Custom alerts",
-        "Premium support"
+        "Premium support",
+        "7-day free trial"
       ],
       popular: false,
       color: "border-slate-700"
@@ -69,7 +75,7 @@ const Pricing = () => {
           <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 max-w-2xl mx-auto">
             <div className="flex items-center justify-center space-x-2 text-blue-400">
               <Zap className="h-5 w-5" />
-              <span className="font-semibold">Save 40% compared to Unusual Whales ($50/month)</span>
+              <span className="font-semibold">Save 60% compared to Unusual Whales ($50/month)</span>
             </div>
           </div>
         </div>
@@ -98,6 +104,9 @@ const Pricing = () => {
                   <span className="text-5xl font-bold text-white">{plan.price}</span>
                   <span className="text-gray-400 ml-2">{plan.period}</span>
                 </div>
+                {plan.originalPrice && (
+                  <p className="text-gray-500 text-sm mt-2">{plan.originalPrice}</p>
+                )}
               </div>
 
               <ul className="space-y-4 mb-8">
@@ -128,7 +137,7 @@ const Pricing = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h4 className="text-lg font-semibold text-white mb-2">How does this compare to competitors?</h4>
-              <p className="text-gray-400">We offer the same core features as Unusual Whales at 40% less cost, with additional layers of analysis coming soon.</p>
+              <p className="text-gray-400">We offer the same core features as Unusual Whales at 60% less cost, with additional layers of analysis coming soon.</p>
             </div>
             <div>
               <h4 className="text-lg font-semibold text-white mb-2">Can I cancel anytime?</h4>
