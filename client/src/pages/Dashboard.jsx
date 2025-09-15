@@ -32,7 +32,7 @@ const Dashboard = () => {
 
   if (tradesLoading || polLoading) {
     return (
-      <section className="py-20 bg-slate-900 min-h-screen">
+      <section className="pt-24 md:pt-28 pb-20 bg-slate-900 min-h-screen">
         <div className="flex justify-center items-center py-20">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-400"></div>
         </div>
@@ -42,7 +42,7 @@ const Dashboard = () => {
   
   if (tradesError || polError) {
     return (
-      <section className="py-20 bg-slate-900 min-h-screen">
+      <section className="pt-24 md:pt-28 pb-20 bg-slate-900 min-h-screen">
         <div className="text-center py-20">
           <p className="text-red-400 text-lg">Error loading data. Please try again later.</p>
         </div>
@@ -108,7 +108,7 @@ const Dashboard = () => {
   });
 
   return (
-    <section className="py-20 bg-slate-900 min-h-screen">
+    <section className="pt-24 md:pt-28 pb-20 bg-slate-900 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
