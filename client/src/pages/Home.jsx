@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import hero from "../assets/herosection.png"; // imported hero section image
 import Navbar from "../components/Navbar";
+import PoliticianExamples from "../components/PoliticianExamples";
 
 const Home = () => {
   return (
@@ -46,15 +47,31 @@ const Home = () => {
               7 Layers of Political Trading Intelligence
             </h2>
 
-            {/* Value Proposition (Always visible now, including mobile) */}
-            <p className="text-sm sm:text-lg md:text-2xl text-gray-300 mb-6 leading-relaxed max-w-3xl mx-auto drop-shadow-[0_0_10px_rgba(56,189,248,0.6)]">
-              Help traders save{" "}
-              <span className="text-blue-400 font-bold drop-shadow-[0_0_15px_rgba(56,189,248,0.8)]">
-                thousands to hundreds of thousands to millions
-              </span>{" "}
-              by tracking politician trades with unprecedented transparency and
-              analysis.
-            </p>
+            {/* Value Proposition - Enhanced */}
+            <div className="space-y-4 mb-8">
+              <p className="text-sm sm:text-lg md:text-2xl text-gray-300 leading-relaxed max-w-4xl mx-auto drop-shadow-[0_0_10px_rgba(56,189,248,0.6)]">
+                <span className="text-blue-400 font-bold drop-shadow-[0_0_15px_rgba(56,189,248,0.8)]">
+                  Politicians turn $174K salaries into millions
+                </span>{" "}
+                through insider trading. Now you can follow their moves in real-time.
+              </p>
+              
+              {/* Key Features */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 text-center">
+                <div className="bg-black/20 backdrop-blur-sm border border-blue-500/20 rounded-lg p-4">
+                  <div className="text-2xl font-bold text-blue-400 mb-1">1,300+</div>
+                  <div className="text-sm text-gray-300">Tracked Trades</div>
+                </div>
+                <div className="bg-black/20 backdrop-blur-sm border border-blue-500/20 rounded-lg p-4">
+                  <div className="text-2xl font-bold text-green-400 mb-1">40%+</div>
+                  <div className="text-sm text-gray-300">Average Returns</div>
+                </div>
+                <div className="bg-black/20 backdrop-blur-sm border border-blue-500/20 rounded-lg p-4">
+                  <div className="text-2xl font-bold text-purple-400 mb-1">24/7</div>
+                  <div className="text-sm text-gray-300">Live Monitoring</div>
+                </div>
+              </div>
+            </div>
 
             {/* CTA Buttons - Hidden on mobile */}
             <div className="hidden sm:flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -95,6 +112,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+      
+      {/* Politician Examples Section */}
+      <PoliticianExamples />
     </div>
   );
 };
